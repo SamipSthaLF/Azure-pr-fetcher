@@ -10,6 +10,10 @@ from asgiref.wsgi import WsgiToAsgi  # Import WSGI to ASGI adapter
 # Initialize the Flask application
 app = Flask(__name__)
 
+@app.route('/keep-alive', methods=['GET'])
+def keep_alive():
+   return "alive"
+
 # Function to clean description by removing unwanted sections, "---", and extra spaces
 def clean_description(description):
     if not description:
