@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Release Notes</title>
+  </head>
+  <body>
+    <h1>Generated Release Notes</h1>
+    <div>
+      <!-- Safely rendering the converted HTML content -->
+      {{ release_notes|safe }}
+    </div>
+
+    <!-- Regenerate and Go Back buttons -->
+    <form method="POST" action="/regenerate_release_notes">
+      <!-- Pass the PR details and OpenAI API key back for regeneration -->
+      <input type="hidden" name="pr_details" value="{{ pr_details }}" />
+      <input type="hidden" name="openai_api_key" value="{{ openai_api_key }}" />
+      <input type="submit" value="Regenerate Release Notes" />
+    </form>
+
+    <br />
+    <a href="/">Go Back</a>
+  </body>
+</html>

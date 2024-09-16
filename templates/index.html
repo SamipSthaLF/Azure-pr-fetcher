@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure PR Fetcher</title>
+  </head>
+  <body>
+    <h1>Fetch Pull Requests from Azure DevOps</h1>
+    <form method="POST">
+      <label for="organization">Organization:</label><br />
+      <input
+        type="text"
+        id="organization"
+        name="organization"
+        required
+      /><br /><br />
+
+      <label for="project">Project:</label><br />
+      <input type="text" id="project" name="project" required /><br /><br />
+
+      <label for="repository">Repository:</label><br />
+      <input
+        type="text"
+        id="repository"
+        name="repository"
+        required
+      /><br /><br />
+
+      <label for="main_branch">Main Branch:</label><br />
+      <input
+        type="text"
+        id="main_branch"
+        name="main_branch"
+        required
+      /><br /><br />
+
+      <label for="date_filter">Date Filter (YYYY-MM-DD):</label><br />
+      <input
+        type="date"
+        id="date_filter"
+        name="date_filter"
+        required
+      /><br /><br />
+
+      <label for="pat">Personal Access Token (PAT):</label><br />
+      <input type="password" id="pat" name="pat" required /><br /><br />
+
+      <label for="openai_api_key">OpenAI API Key:</label><br />
+      <input
+        type="password"
+        id="openai_api_key"
+        name="openai_api_key"
+        required
+      /><br /><br />
+
+      <input type="submit" value="Fetch Pull Requests" />
+    </form>
+  </body>
+</html>

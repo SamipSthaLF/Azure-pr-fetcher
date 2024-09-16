@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PR Results</title>
+  </head>
+  <body>
+    <h1>Pull Requests</h1>
+    {% if pull_requests %}
+    <ul>
+      {% for pr in pull_requests %}
+      <li>
+        <strong>Title:</strong>
+        <a href="{{ pr.url }}" target="_blank">{{ pr.title }}</a><br />
+        <strong>Description:</strong> {{ pr.description }}<br /><br />
+        <br />
+      </li>
+      {% endfor %}
+    </ul>
+
+    <form method="POST" action="/release_notes">
+      <input type="hidden" name="openai_api_key" value="{{ openai_api_key }}" />
+      <input type="hidden" name="pr_details" value="{{ pull_requests }}" />
+      <input type="submit" value="Generate Release Notes" />
+    </form>
+
+    {% else %}
+    <p>No pull requests found for the given criteria.</p>
+    {% endif %}
+    <a href="/">Go Back</a>
+  </body>
+</html>
