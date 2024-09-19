@@ -71,10 +71,11 @@ def index():
             # Collect pull request data
             for pr in pull_requests:
                 cleaned_description = clean_description(pr['description'])
+                mergeId = pr['lastMergeTargetCommit']['commitId']
                 pr_details.append({
                     'title': pr['title'],
                     'description': cleaned_description,
-                    'url': pr['url']
+                    'url': f'https://dev.azure.com/{organization}/{project}/_git/{repository}/commit/{mergeId}?tab=details'
                 })
 
             # Pass the pull request details and OpenAI key as JSON
